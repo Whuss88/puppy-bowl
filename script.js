@@ -1,19 +1,36 @@
 // console.log(`welcome to the thunder dome`)
 
-// async function here
+const fetchData = async () => {
+  try {
+      // Fetch data from the specified URL
+      const response = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2409-FTB-ET-WEB-FT/players');
+      // Make the data readable with json()
+      const responseJson = await response.json();
+      // console.log(responseJson.data.players)
+      const allPlayers = responseJson.data.players
+      console.log(allPlayers)
+      // Display the players
+  //    
+      const playersArr = allPlayers.map(player => `<li>${player.name}</li>`)
+      console.log(playersArr)
+  //     // Create actual list
+      const playerList = document.createElement('ul');
+  //     // Put readable data into new listItem
+      playerList.innerHTML = playersArr.join(``);
+      console.log(playerList);
+  //     // Grab main from html
+      const main = document.querySelector('main');
+  //     // Put newList into main
+      main.innerHTML = ''; // Clear main
+      main.append(playerList);
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }
+}
 
-// try code
-  // fetch this date from (enter url)
-  // tell it to wait
-  // make data readable with json() and maybe .results
-  // create list items for readable data
-  // put readable data into new listItem
-  // create actual list
-  // append newListItem to newList
-  // grab main from html
-  // put newList into main
-// catch and console error if fetch did not work
-// end async funtion
+// Call the async function
+fetchData();
+
 // style when done 
 // make new branch
 // create async function??? to show indivial player data when clicked
@@ -27,3 +44,4 @@
 // end async function or regular function
 // style individual pages
 
+fetchData()
