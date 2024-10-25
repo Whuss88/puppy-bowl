@@ -57,19 +57,20 @@ const addClickEventToPlayers = () => {
 const displayPlayerDetails = (player) => {
   // grab main 
   const main = document.querySelector(`main`);
+  console.log(player.imageUrl)
   // fill main contents with details
   main.innerHTML = `
-  <button id="back-button">Back</button>
-  <h2>${player.name}</h2>
-  <img src=${player.imageUrl}" alt="${player.name}'s picture"/>
-  <h3>ID</h3>
-    <p>${player.id}</p>
-  <h3>Breed</h3>
-    <p>${player.breed}</p>
-  <h3>Status</h3>
-    <p>${player.status}</p>
-  `;
-  // / grab button 
+    <button id="back-button">Back</button>
+    <h2>${player.name}</h2>
+    <img src="${player.imageUrl}" alt="${player.name}'s picture"/>
+    <h3>ID</h3>
+      <p>${player.id}</p>
+    <h3>Breed</h3>
+      <p>${player.breed}</p>
+    <h3>Status</h3>
+      <p>${player.status}</p>
+    `;
+    // / grab button 
   const backButton = document.querySelector(`#back-button`);
   // create add event listener for back button
   backButton.addEventListener(`click`, (event) => {
